@@ -1,8 +1,9 @@
-import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
-import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
+import 'package:dream/app/core/theme/color_theme.dart';
+import 'package:dream/app/core/theme/text_theme.dart';
+import 'package:dream/app/pages/calander/widget/add.dart';
 import 'package:flutter/material.dart';
 
-class FGBPTextField extends StatelessWidget {
+class DreamTextField extends StatelessWidget {
   final String? label;
   final String? hintText;
   final bool autofocus;
@@ -11,11 +12,13 @@ class FGBPTextField extends StatelessWidget {
   final TextInputType? textInputType;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
+  final void Function()? onTap;
   final TextInputAction? textInputAction;
   final void Function()? onEditingComplete;
   final bool? enableInteractiveSelection;
+  final bool readOnly;
 
-  const FGBPTextField({
+  const DreamTextField({
     Key? key,
     this.label,
     this.hintText,
@@ -23,22 +26,27 @@ class FGBPTextField extends StatelessWidget {
     this.maxLength,
     this.textInputType,
     this.onChanged,
+    this.onTap,
     this.textInputAction,
     this.onEditingComplete,
     this.enableInteractiveSelection,
     this.autofocus = false,
     this.isPassword = false,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTap: () {
+        SelectModal().showCategory();
+      },
       enableInteractiveSelection: enableInteractiveSelection,
       obscureText: isPassword,
       enableSuggestions: !isPassword,
       autocorrect: !isPassword,
       autofocus: autofocus,
-      style: FGBPTextTheme.regular20,
+      style: DreamTextTheme.medium14.copyWith(color: DreamColors.color5),
       cursorColor: Colors.black,
       keyboardType: textInputType,
       maxLength: maxLength,
@@ -46,6 +54,7 @@ class FGBPTextField extends StatelessWidget {
       onChanged: onChanged,
       onEditingComplete: onEditingComplete,
       textInputAction: textInputAction,
+      readOnly: readOnly,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: label,
@@ -57,19 +66,16 @@ class FGBPTextField extends StatelessWidget {
           ),
         ),
         counterText: "",
-        fillColor: FGBPColors.black,
+        fillColor: const Color(0xfff7f7f7),
         filled: true,
-        hintStyle: FGBPTextTheme.regular20,
-        floatingLabelStyle: const TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 0.4),
-            fontWeight: FontWeight.w500,
-            fontSize: 12),
+        hintStyle: DreamTextTheme.medium14.copyWith(color: DreamColors.color5),
+        floatingLabelStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.4), fontWeight: FontWeight.w500, fontSize: 12),
       ),
     );
   }
 }
 
-class FGBPTextFormField extends StatelessWidget {
+class DreamTextFormField extends StatelessWidget {
   final String? label;
   final String? hintText;
   final bool autofocus;
@@ -83,7 +89,7 @@ class FGBPTextFormField extends StatelessWidget {
   final void Function()? onEditingComplete;
   final bool? enableInteractiveSelection;
 
-  const FGBPTextFormField({
+  const DreamTextFormField({
     Key? key,
     this.label,
     this.hintText,
@@ -108,7 +114,7 @@ class FGBPTextFormField extends StatelessWidget {
       enableSuggestions: !isPassword,
       autocorrect: !isPassword,
       autofocus: autofocus,
-      style: FGBPTextTheme.regular20,
+      style: DreamTextTheme.regular20,
       onEditingComplete: onEditingComplete,
       cursorColor: Colors.black,
       keyboardType: textInputType,
@@ -126,13 +132,10 @@ class FGBPTextFormField extends StatelessWidget {
           ),
         ),
         counterText: "",
-        fillColor: FGBPColors.black,
+        fillColor: DreamColors.black,
         filled: true,
-        hintStyle: FGBPTextTheme.regular20,
-        floatingLabelStyle: const TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 0.4),
-            fontWeight: FontWeight.w500,
-            fontSize: 12),
+        hintStyle: DreamTextTheme.regular20,
+        floatingLabelStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.4), fontWeight: FontWeight.w500, fontSize: 12),
       ),
       validator: validator,
     );

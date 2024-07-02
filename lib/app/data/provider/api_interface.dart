@@ -1,3 +1,3 @@
-abstract class FGBPApiInterface {
+abstract class DreamApiInterface {
   Future<void> getInfo();
 }

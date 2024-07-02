@@ -1,21 +1,21 @@
 import 'package:dio/dio.dart';
-import 'package:firebase_getx_boilerplate/app/data/provider/api_interface.dart';
+import 'package:dream/app/data/provider/api_interface.dart';
 
-class FGBPInterceptor extends Interceptor {
+class DreamInterceptor extends Interceptor {
   final Dio _dioInstance;
-  FGBPInterceptor(this._dioInstance);
+  DreamInterceptor(this._dioInstance);
 
   //onRequest
   //onError
 }
 
-class FGBPApiProvider implements FGBPApiInterface {
+class DreamApiProvider implements DreamApiInterface {
   final Dio dio = Dio();
   final baseUrl = "https:...";
 
-  FGBPApiProvider() {
+  DreamApiProvider() {
     dio.options.baseUrl = baseUrl;
-    dio.interceptors.add(FGBPInterceptor(dio));
+    dio.interceptors.add(DreamInterceptor(dio));
   }
 
   @override

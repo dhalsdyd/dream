@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
-class LifeCycleController extends FullLifeCycleController
-    with FullLifeCycleMixin {
+class LifeCycleController extends FullLifeCycleController with FullLifeCycleMixin {
   // Mandatory
   @override
   void onDetached() {}
@@ -17,4 +16,9 @@ class LifeCycleController extends FullLifeCycleController
   // Mandatory
   @override
   void onResumed() {}
+
+  @override
+  void onHidden() {
+    // TODO: implement onHidden
+  }
 }

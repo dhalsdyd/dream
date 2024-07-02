@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -5,16 +7,14 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 
 enum ConnectivityStatus { WiFi, Cellular, Offline }
 
-class ConnectionService extends GetxService{
-
+class ConnectionService extends GetxService {
   //0 = No Internet, 1 = WIFI Connected ,2 = Mobile Data Connected.
   final Rx<ConnectivityStatus> connectionType = Rx(ConnectivityStatus.Offline);
   late StreamSubscription _connectionSubscription;
   final Connectivity _connectivity = Connectivity();
 
   Future<void> listenToConnection() async {
-    _connectionSubscription =
-        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    _connectionSubscription = _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
   }
 
   void _updateConnectionStatus(ConnectivityResult result) async {

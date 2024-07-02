@@ -1,7 +1,7 @@
-import 'package:firebase_getx_boilerplate/app/data/provider/api_interface.dart';
+import 'package:dream/app/data/provider/api_interface.dart';
 
 class AuthRepository {
-  final FGBPApiInterface api;
+  final DreamApiInterface api;
 
   AuthRepository(this.api);
 
@@ -14,8 +14,7 @@ class AuthRepository {
   ///[password] is the password of the user
   ///[name] is the name of the user
   ///[birth] is the birth of the user
-  Future<Map> registerUser(
-      String email, String password, String name, String birth) async {
+  Future<Map> registerUser(String email, String password, String name, String birth) async {
     return {};
   }
 }

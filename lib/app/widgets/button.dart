@@ -1,14 +1,13 @@
-import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
+import 'package:dream/app/core/theme/color_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/svg.dart';
 
-class FGBPIconButton extends StatelessWidget {
+class DreamIconButton extends StatelessWidget {
   final String iconPath;
   final int? badgeNumber;
   final void Function()? onTap;
-  const FGBPIconButton(this.iconPath, {this.badgeNumber, this.onTap, Key? key})
-      : super(key: key);
+  const DreamIconButton(this.iconPath, {this.badgeNumber, this.onTap, Key? key}) : super(key: key);
 
   Widget _badge() {
     if (badgeNumber != null) {
@@ -19,16 +18,13 @@ class FGBPIconButton extends StatelessWidget {
           width: 16,
           height: 16,
           decoration: BoxDecoration(
-            color: FGBPColors.mainColor,
+            color: DreamColors.mainColor,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(
             child: Text(
               badgeNumber.toString(),
-              style: const TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white),
+              style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w400, color: Colors.white),
             ),
           ),
         ),
@@ -46,7 +42,7 @@ class FGBPIconButton extends StatelessWidget {
         width: 48,
         height: 48,
         decoration: BoxDecoration(
-          color: FGBPColors.black,
+          color: DreamColors.black,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Stack(
@@ -57,8 +53,7 @@ class FGBPIconButton extends StatelessWidget {
                 child: SizedBox(
                   width: 24,
                   height: 24,
-                  child:
-                      SvgPicture.asset(iconPath, color: FGBPColors.mainColor),
+                  child: SvgPicture.asset(iconPath, color: DreamColors.mainColor),
                 ),
               ),
             ),
@@ -70,7 +65,7 @@ class FGBPIconButton extends StatelessWidget {
   }
 }
 
-class FGBPKeyboardReactiveButton extends StatelessWidget {
+class DreamKeyboardReactiveButton extends StatelessWidget {
   final Widget child;
   final double? width;
   final EdgeInsets innerPadding;
@@ -78,14 +73,14 @@ class FGBPKeyboardReactiveButton extends StatelessWidget {
   final void Function()? onTap;
   final Color color;
   final bool disabled;
-  const FGBPKeyboardReactiveButton({
+  const DreamKeyboardReactiveButton({
     Key? key,
     required this.child,
     this.width,
     this.innerPadding = const EdgeInsets.all(16),
     this.onTap,
     this.padding = const EdgeInsets.all(0),
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.disabled = false,
   }) : super(key: key);
 
@@ -117,16 +112,12 @@ class FGBPKeyboardReactiveButton extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(
-                              color.red, color.green, color.blue, 0.24),
-                          offset: const Offset(0, 4),
-                          blurRadius: 12)
+                      BoxShadow(color: Color.fromRGBO(color.red, color.green, color.blue, 0.24), offset: const Offset(0, 4), blurRadius: 12)
                     ],
-                    borderRadius: BorderRadius.circular(12 * (1 - value)),
+                    borderRadius: BorderRadius.circular(40 * (1 - value)),
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12 * (1 - value)),
+                    borderRadius: BorderRadius.circular(40 * (1 - value)),
                     child: Material(
                       color: color,
                       child: InkWell(
@@ -151,21 +142,15 @@ class FGBPKeyboardReactiveButton extends StatelessWidget {
   }
 }
 
-class FGBPBaseButton extends StatelessWidget {
+class DreamBaseButton extends StatelessWidget {
   final Widget child;
   final double? width;
   final EdgeInsets padding;
   final void Function()? onTap;
   final Color color;
   final bool disabled;
-  const FGBPBaseButton(
-      {Key? key,
-      required this.child,
-      required this.padding,
-      this.onTap,
-      this.width,
-      this.color = FGBPColors.mainColor,
-      this.disabled = false})
+  const DreamBaseButton(
+      {Key? key, required this.child, required this.padding, this.onTap, this.width, this.color = DreamColors.mainColor, this.disabled = false})
       : super(key: key);
 
   @override
@@ -174,16 +159,11 @@ class FGBPBaseButton extends StatelessWidget {
       opacity: disabled ? 0.6 : 1,
       child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-                color: Color.fromRGBO(color.red, color.green, color.blue, 0.24),
-                offset: const Offset(0, 4),
-                blurRadius: 12)
-          ],
-          borderRadius: BorderRadius.circular(12),
+          boxShadow: [BoxShadow(color: Color.fromRGBO(color.red, color.green, color.blue, 0.24), offset: const Offset(2, 2), blurRadius: 10)],
+          borderRadius: BorderRadius.circular(8),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(8),
           child: Material(
             color: color,
             child: InkWell(
@@ -203,25 +183,25 @@ class FGBPBaseButton extends StatelessWidget {
   }
 }
 
-class FGBPLargeButton extends StatelessWidget {
+class DreamLargeButton extends StatelessWidget {
   final Widget child;
   final double? width;
   final void Function()? onTap;
   final Color color;
   final bool disabled;
-  const FGBPLargeButton({
+  const DreamLargeButton({
     Key? key,
     required this.child,
     this.onTap,
     this.width,
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.disabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FGBPBaseButton(
-      padding: const EdgeInsets.all(24),
+    return DreamBaseButton(
+      padding: const EdgeInsets.all(20),
       width: width,
       onTap: onTap,
       color: color,
@@ -231,55 +211,53 @@ class FGBPLargeButton extends StatelessWidget {
   }
 }
 
-class FGBPLargeTextButton extends StatelessWidget {
+class DreamLargeTextButton extends StatelessWidget {
   final String text;
   final double? width;
   final void Function()? onTap;
   final Color color;
   final Color textColor;
   final bool disabled;
-  const FGBPLargeTextButton({
+  const DreamLargeTextButton({
     Key? key,
     required this.text,
     this.onTap,
     this.width,
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.textColor = Colors.white,
     this.disabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FGBPLargeButton(
+    return DreamLargeButton(
       width: width,
       onTap: onTap,
       color: color,
       disabled: disabled,
-      child: Text(text,
-          style: TextStyle(
-              color: textColor, fontSize: 16, fontWeight: FontWeight.w600)),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w600)),
     );
   }
 }
 
-class FGBPMediumButton extends StatelessWidget {
+class DreamMediumButton extends StatelessWidget {
   final Widget child;
   final double? width;
   final void Function()? onTap;
   final Color color;
   final bool disabled;
-  const FGBPMediumButton({
+  const DreamMediumButton({
     Key? key,
     required this.child,
     this.onTap,
     this.width,
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.disabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FGBPBaseButton(
+    return DreamBaseButton(
       padding: const EdgeInsets.all(16),
       width: width,
       onTap: onTap,
@@ -290,55 +268,53 @@ class FGBPMediumButton extends StatelessWidget {
   }
 }
 
-class FGBPMediumTextButton extends StatelessWidget {
+class DreamMediumTextButton extends StatelessWidget {
   final String text;
   final double? width;
   final void Function()? onTap;
   final Color color;
   final Color textColor;
   final bool disabled;
-  const FGBPMediumTextButton({
+  const DreamMediumTextButton({
     Key? key,
     required this.text,
     this.onTap,
     this.width,
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.textColor = Colors.white,
     this.disabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FGBPMediumButton(
+    return DreamMediumButton(
       width: width,
       onTap: onTap,
       color: color,
       disabled: disabled,
-      child: Text(text,
-          style: TextStyle(
-              color: textColor, fontSize: 16, fontWeight: FontWeight.w500)),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500)),
     );
   }
 }
 
-class FGBPSmallButton extends StatelessWidget {
+class DreamSmallButton extends StatelessWidget {
   final Widget child;
   final double? width;
   final void Function()? onTap;
   final Color color;
   final bool disabled;
-  const FGBPSmallButton({
+  const DreamSmallButton({
     Key? key,
     required this.child,
     this.onTap,
     this.width,
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.disabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FGBPBaseButton(
+    return DreamBaseButton(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       width: width,
       onTap: onTap,
@@ -349,33 +325,74 @@ class FGBPSmallButton extends StatelessWidget {
   }
 }
 
-class FGBPSmallTextButton extends StatelessWidget {
+class DreamSmallTextButton extends StatelessWidget {
   final String text;
   final double? width;
   final void Function()? onTap;
   final Color color;
   final Color textColor;
   final bool disabled;
-  const FGBPSmallTextButton({
+  const DreamSmallTextButton({
     Key? key,
     required this.text,
     this.onTap,
     this.width,
-    this.color = FGBPColors.mainColor,
+    this.color = DreamColors.mainColor,
     this.textColor = Colors.white,
     this.disabled = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FGBPSmallButton(
+    return DreamSmallButton(
       width: width,
       onTap: onTap,
       color: color,
       disabled: disabled,
-      child: Text(text,
-          style: TextStyle(
-              color: textColor, fontSize: 16, fontWeight: FontWeight.w600)),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w600)),
+    );
+  }
+}
+
+class DreamSmallIconTextButton extends StatelessWidget {
+  final String text;
+  final String icon;
+  final double? width;
+  final void Function()? onTap;
+  final Color color;
+  final Color textColor;
+  final bool disabled;
+  const DreamSmallIconTextButton({
+    Key? key,
+    required this.text,
+    required this.icon,
+    this.onTap,
+    this.width,
+    this.color = DreamColors.mainColor,
+    this.textColor = Colors.white,
+    this.disabled = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DreamSmallButton(
+      width: width,
+      onTap: onTap,
+      color: color,
+      disabled: disabled,
+      child: Stack(
+        children: [
+          Positioned(
+            child: Image.asset(icon) ?? const SizedBox.shrink(),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(text, style: TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w600)),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

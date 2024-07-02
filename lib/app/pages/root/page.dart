@@ -1,4 +1,5 @@
-import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
+import 'package:dream/app/core/theme/color_theme.dart';
+import 'package:dream/app/core/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
 class RootPage extends StatelessWidget {
@@ -6,15 +7,16 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: DreamColors.mainColor,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(44),
+        padding: EdgeInsets.all(44),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Text("Hello World!!!", style: FGBPTextTheme.bold20),
+          children: [
+            Text("Hello World!!!", style: DreamTextTheme.bold20),
           ],
         ),
       )),
