@@ -62,3 +62,8 @@ app.*.map.json
 **/windows/flutter/generated_plugin_registrant.cc
 **/windows/flutter/generated_plugin_registrant.h
 **/windows/flutter/generated_plugins.cmake
+
+# Assets
+assets/images/
+assets/icons/
+assets/stickers/
