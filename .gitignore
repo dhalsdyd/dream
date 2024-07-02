@@ -64,6 +64,6 @@ app.*.map.json
 **/windows/flutter/generated_plugins.cmake
 
 # Assets
-assets/images/
-assets/icons/
-assets/stickers/
+/assets/images/
+/assets/icons/
+/assets/stickers/
